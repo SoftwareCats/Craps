@@ -1,2 +1,4 @@
 # Craps
-Craps game simulation using the Casino library.
+Craps game simulation to analyse different betting strategies.
+
+Work in progress.
