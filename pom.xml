@@ -118,7 +118,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        io.github.softwarecat.App
+                                        io.github.softwarecats.craps.App
                                     </mainClass>
                                 </manifest>
                             </archive>
