@@ -39,7 +39,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build with Maven
-        run: mvn -B compile --file pom.xml
+        run: mvn -B compile --file pom.xml -s $GITHUB_WORKSPACE/settings.xml
 
       # Execute Codacy Analysis CLI and generate a SARIF output with the security issues identified during the analysis
       - name: Run Codacy Analysis CLI
