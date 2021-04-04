@@ -24,8 +24,8 @@
     <servers>
         <server>
             <id>github</id>
-            <username>${env.GITHUB_USERNAME}</username>
-            <password>${env.GITHUB_TOKEN}</password>
+            <username>Software-Cat</username>
+            <password>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</password>
         </server>
     </servers>
 </settings>
