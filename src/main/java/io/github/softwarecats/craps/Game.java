@@ -18,7 +18,7 @@ package io.github.softwarecats.craps;
 
 /**
  * {@link Game} is a preliminary design for the game of Craps. This initial design contains the interface used by
- * the {@link io.github.softwarecats.craps.dice.Throw} class hierarchy to implement game state changes.
+ * the {@link io.github.softwarecats.craps.event.Throw} class hierarchy to implement game state changes.
  */
 public class Game {
 

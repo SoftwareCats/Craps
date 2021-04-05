@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.softwarecats.craps.dice;
+package io.github.softwarecats.craps.event;
 
+import io.github.softwarecats.casino.event.Outcome;
 import io.github.softwarecats.craps.Game;
-import io.github.softwarecats.craps.Outcome;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -50,7 +50,7 @@ public class CrapsThrow extends Throw {
      * @param diceTwo  the value of the other die
      * @param outcomes the various {@link Outcome}s for this {@link Throw}
      */
-    public CrapsThrow(int diceOne, int diceTwo, Outcome... outcomes) {
+    public CrapsThrow(int diceOne, int diceTwo, Outcome[] outcomes) {
         this(diceOne, diceTwo, Arrays.asList(outcomes.clone()));
     }
 

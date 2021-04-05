@@ -14,27 +14,21 @@
  * limitations under the License.
  */
 
-package io.github.softwarecats.craps.dice;
+package io.github.softwarecats.craps.event;
 
+import io.github.softwarecats.casino.event.Outcome;
+import io.github.softwarecats.casino.event.RandomEvent;
 import io.github.softwarecats.craps.Game;
-import io.github.softwarecats.craps.Outcome;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * {@link Throw} is the superclass for the various throws of the dice. Each subclass is a different grouping of the numbers, based
  * on the rules for Craps.
  */
-public abstract class Throw {
-
-    /**
-     * A {@link Set} of one-roll Outcomes that win with this throw.
-     */
-    public final Set<Outcome> outcomes;
+public abstract class Throw extends RandomEvent {
 
     /**
      * One of the two die values, from 1 to 6.
@@ -63,7 +57,7 @@ public abstract class Throw {
      * @param diceTwo  the value of the other die
      * @param outcomes the various {@link Outcome}s for this {@link Throw}
      */
-    public Throw(int diceOne, int diceTwo, Outcome... outcomes) {
+    public Throw(int diceOne, int diceTwo, Outcome[] outcomes) {
         this(diceOne, diceTwo, Arrays.asList(outcomes.clone()));
     }
 
@@ -74,10 +68,10 @@ public abstract class Throw {
      * @param diceTwo  the value of the other die
      * @param outcomes the various {@link Outcome}s for this {@link Throw}
      */
-    public Throw(int diceOne, int diceTwo, Collection<Outcome> outcomes) {
+    public Throw(int diceOne, int diceTwo, Collection<? extends Outcome> outcomes) {
+        super(outcomes);
         this.diceOne = diceOne;
         this.diceTwo = diceTwo;
-        this.outcomes = new HashSet<>(outcomes);
     }
 
     /**
@@ -115,5 +109,9 @@ public abstract class Throw {
      */
     public Pair<Integer, Integer> getKey() {
         return Pair.of(diceOne, diceTwo);
+    }
+
+    public int getSum() {
+        return diceOne + diceTwo;
     }
 }

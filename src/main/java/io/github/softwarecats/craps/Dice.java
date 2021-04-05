@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.softwarecats.craps.dice;
+package io.github.softwarecats.craps;
 
 
+import io.github.softwarecats.craps.event.Throw;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.*;

@@ -14,67 +14,66 @@
  * limitations under the License.
  */
 
-package io.github.softwarecats.craps.dice;
+package io.github.softwarecats.craps.event;
 
+import io.github.softwarecats.casino.event.Outcome;
 import io.github.softwarecats.craps.Game;
-import io.github.softwarecats.craps.Outcome;
 
 import java.util.Arrays;
 import java.util.Collection;
 
 /**
- * {@link ElevenThrow} is a subclass of {@link Throw} for the number, 11. This is special because 11 has one effect on a come-out
- * roll and a different effect on point rolls.
+ * {@link NaturalThrow} is a subclass of {@link Throw} for the natural number, 7.
  */
-public class ElevenThrow extends Throw {
+public class NaturalThrow extends Throw {
 
     /**
-     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo = 11. If the constraint is not satisfied, simply
+     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo = 7. If the constraint is not satisfied, simply
      * raise an {@link Exception}.
      * <p>
-     * This uses the superclass constructor to add appropriate {@link Outcome} for a {@link Throw} of 11.
+     * This uses the superclass constructor to add appropriate {@link Outcome} for a {@link Throw} of 7.
      *
      * @param diceOne the value of one die
      * @param diceTwo the value of the other die
      */
-    public ElevenThrow(int diceOne, int diceTwo) {
+    public NaturalThrow(int diceOne, int diceTwo) {
         this(diceOne, diceTwo, new Outcome[]{});
     }
 
     /**
-     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo = 11. If the constraint is not satisfied, simply
+     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo = 7. If the constraint is not satisfied, simply
      * raise an {@link Exception}.
      * <p>
-     * This uses the superclass constructor to add appropriate {@link Outcome} for a {@link Throw} of 11.
+     * This uses the superclass constructor to add appropriate {@link Outcome} for a {@link Throw} of 7.
      *
      * @param diceOne  the value of one die
      * @param diceTwo  the value of the other die
      * @param outcomes the various {@link Outcome}s for this {@link Throw}
      */
-    public ElevenThrow(int diceOne, int diceTwo, Outcome... outcomes) {
+    public NaturalThrow(int diceOne, int diceTwo, Outcome[] outcomes) {
         this(diceOne, diceTwo, Arrays.asList(outcomes.clone()));
     }
 
     /**
-     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo = 11. If the constraint is not satisfied, simply
+     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo = 7. If the constraint is not satisfied, simply
      * raise an {@link Exception}.
      * <p>
-     * This uses the superclass constructor to add appropriate {@link Outcome} for a {@link Throw} of 11.
+     * This uses the superclass constructor to add appropriate {@link Outcome} for a {@link Throw} of 7.
      *
      * @param diceOne  the value of one die
      * @param diceTwo  the value of the other die
      * @param outcomes the various {@link Outcome}s for this {@link Throw}
      */
-    public ElevenThrow(int diceOne, int diceTwo, Collection<Outcome> outcomes) {
+    public NaturalThrow(int diceOne, int diceTwo, Collection<Outcome> outcomes) {
         super(diceOne, diceTwo, outcomes);
 
-        if (diceOne + diceTwo != 11) {
-            throw new IllegalArgumentException("In a eleven throw, dice one and two must sum to 11");
+        if (diceOne + diceTwo != 7) {
+            throw new IllegalArgumentException("In a natural throw, dice one and two must sum to 7");
         }
     }
 
     /**
-     * Eleven is odd and never part of “hardways” bets. This method always returns false.
+     * A natural 7 is odd, and can never be made “the hard way”. This method always returns false.
      *
      * @return {@link Boolean#FALSE}
      */
@@ -84,12 +83,12 @@ public class ElevenThrow extends Throw {
     }
 
     /**
-     * Calls the {@link Game#eleven()} method of a {@link Game}. This may change the game state and resolve bets.
+     * Calls the {@link Game#natural()} method of a {@link Game}. This may change the game state and resolve bets.
      *
      * @param game the {@link Game} to be updated based on this throw
      */
     @Override
     public void updateGame(Game game) {
-        game.eleven();
+        game.natural();
     }
 }

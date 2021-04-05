@@ -14,28 +14,4 @@
  * limitations under the License.
  */
 
-package io.github.softwarecats.craps.dice;
-
-import org.junit.Assert;
-import org.junit.Test;
-
-public class NaturalThrowTest extends ThrowTest {
-
-    @Override
-    public void setUp() {
-        super.setUp();
-        diceThrow = new NaturalThrow(1, 6);
-    }
-
-    @Override
-    @Test
-    public void isHard() {
-        Assert.assertFalse(diceThrow.isHard());
-    }
-
-    @Test
-    public void updateGame() {
-        diceThrow.updateGame(game);
-        Assert.assertEquals("natural", methodCalled);
-    }
-}
+package io.github.softwarecats.craps.event;

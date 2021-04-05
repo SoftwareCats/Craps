@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.softwarecats.craps;
+package io.github.softwarecats.craps.event;
 
+import io.github.softwarecats.casino.event.Outcome;
 import org.apache.commons.lang3.math.Fraction;
 import org.junit.Before;
 import org.junit.Test;

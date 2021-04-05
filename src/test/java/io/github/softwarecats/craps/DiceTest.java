@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.softwarecats.craps.dice;
+package io.github.softwarecats.craps;
 
+import io.github.softwarecats.craps.event.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

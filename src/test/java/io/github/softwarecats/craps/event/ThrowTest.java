@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.softwarecats.craps.dice;
+package io.github.softwarecats.craps.event;
 
 import io.github.softwarecats.craps.Game;
 import org.apache.commons.lang3.tuple.Pair;

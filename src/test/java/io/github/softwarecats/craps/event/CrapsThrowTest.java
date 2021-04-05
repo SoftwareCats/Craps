@@ -14,45 +14,30 @@
  * limitations under the License.
  */
 
-package io.github.softwarecats.craps.dice;
+package io.github.softwarecats.craps.event;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PointThrowTest extends ThrowTest {
+public class CrapsThrowTest extends ThrowTest {
 
     @Override
     @Before
     public void setUp() {
         super.setUp();
-        diceThrow = new PointThrow(2, 2);
+        diceThrow = new CrapsThrow(6, 6);
     }
 
     @Override
     @Test
     public void isHard() {
-        for (int i = 1; i < 7; i++) {
-            for (int j = 1; j < 7; j++) {
-                Throw diceThrow;
-                try {
-                    diceThrow = new PointThrow(i, j);
-
-                    if (i == j) {
-                        Assert.assertTrue(diceThrow.isHard());
-                    } else {
-                        Assert.assertFalse(diceThrow.isHard());
-                    }
-                } catch (Exception ignored) {
-                    // Expected behaviour, should not allow creation of illegal throws
-                }
-            }
-        }
+        Assert.assertFalse(diceThrow.isHard());
     }
 
     @Test
     public void updateGame() {
         diceThrow.updateGame(game);
-        Assert.assertEquals("point", methodCalled);
+        Assert.assertEquals("craps", methodCalled);
     }
 }

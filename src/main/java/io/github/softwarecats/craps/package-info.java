@@ -14,30 +14,4 @@
  * limitations under the License.
  */
 
-package io.github.softwarecats.craps.dice;
-
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
-public class CrapsThrowTest extends ThrowTest {
-
-    @Override
-    @Before
-    public void setUp() {
-        super.setUp();
-        diceThrow = new CrapsThrow(6, 6);
-    }
-
-    @Override
-    @Test
-    public void isHard() {
-        Assert.assertFalse(diceThrow.isHard());
-    }
-
-    @Test
-    public void updateGame() {
-        diceThrow.updateGame(game);
-        Assert.assertEquals("craps", methodCalled);
-    }
-}
+package io.github.softwarecats.craps;
