@@ -23,6 +23,9 @@ jobs:
           java-version: 11
 
       - name: Build with Maven
+        env:
+          USENAME: ${{github.actor}}
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         run: mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
 
       - name: Stage Maven artifacts
