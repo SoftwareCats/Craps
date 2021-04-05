@@ -1,7 +1,9 @@
 ---
-name: Pull Request about: Create a pull request to merge changes title: ""
-labels: ""
-assignees: ""
+name: Pull Request
+about: Create a pull request to merge changes 
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
