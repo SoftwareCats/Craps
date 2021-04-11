@@ -17,7 +17,7 @@
 package io.github.softwarecats.craps;
 
 /**
- * Hello world!
+ * Hello world.
  */
 public class App {
     public static void main(String[] args) {
