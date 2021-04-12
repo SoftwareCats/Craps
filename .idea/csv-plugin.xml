@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\main\java\io\github\softwarecats\craps\event\CrapsThrow.java">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\main\java\io\github\softwarecats\craps\event\OutcomeField.java">
           <value>
             <Attribute>
