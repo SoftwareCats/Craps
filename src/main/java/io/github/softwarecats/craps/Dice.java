@@ -18,24 +18,27 @@ package io.github.softwarecats.craps;
 
 
 import io.github.softwarecats.craps.event.Throw;
+import lombok.Getter;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.*;
 
 /**
- * {@link Dice} contains the 36 individual throws of two dice, plus a random number generator. It can select a {@link Throw}
- * at random, simulating a throw of the Craps dice.
+ * {@link Dice} contains the 36 individual throws of two dice, plus a random number generator. It can select a {@link
+ * Throw} at random, simulating a throw of the Craps dice.
  */
 public class Dice {
 
     /**
-     * Generates the next random number, used to select a {@link Throw} from the {@link Dice#THROWS} collection.
+     * Generates the next random number, used to select a {@link Throw} from the {@link Dice#allThrows} collection.
      */
     protected final Random RNG;
+
     /**
      * This is a {@link Map} that associates a {@link Pair} with a {@link Throw}.
      */
-    protected final Map<Pair<Integer, Integer>, Throw> THROWS;
+    @Getter
+    protected final Map<Pair<Integer, Integer>, Throw> allThrows;
 
     /**
      * Creates a new random number generator instance, and calls the other constructor.
@@ -51,46 +54,46 @@ public class Dice {
      */
     public Dice(Random rng) {
         RNG = rng;
-        THROWS = new HashMap<>();
+        allThrows = new HashMap<>();
     }
 
     /**
-     * While not needed by the application, unit tests may need a method to return a specific {@link Throw}
-     * rather than a randomly selected {@link Throw}.
+     * While not needed by the application, unit tests may need a method to return a specific {@link Throw} rather than
+     * a randomly selected {@link Throw}.
      * <p>
-     * This method takes a particular combination of dice, locates (or creates) a {@link Pair}, and
-     * returns the appropriate {@link Throw}.
+     * This method takes a particular combination of dice, locates (or creates) a {@link Pair}, and returns the
+     * appropriate {@link Throw}.
      *
      * @param diceOne the value of one die
      * @param diceTwo the value of the other die
      * @return the {@link Throw}
      */
     public Throw getThrow(int diceOne, int diceTwo) {
-        return THROWS.get(Pair.of(diceOne, diceTwo));
+        return allThrows.get(Pair.of(diceOne, diceTwo));
     }
 
     /**
-     * While not needed by the application, unit tests may need a method to return a specific {@link Throw}
-     * rather than a randomly selected {@link Throw}.
+     * While not needed by the application, unit tests may need a method to return a specific {@link Throw} rather than
+     * a randomly selected {@link Throw}.
      * <p>
-     * This method takes a particular combination of dice, represented by a {@link Pair}, and
-     * returns the appropriate {@link Throw}.
+     * This method takes a particular combination of dice, represented by a {@link Pair}, and returns the appropriate
+     * {@link Throw}.
      *
      * @param key the key
      * @return the throw
      */
     public Throw getThrow(Pair<Integer, Integer> key) {
-        return THROWS.get(key);
+        return allThrows.get(key);
     }
 
     /**
-     * Adds the given {@link Throw} to the mapping maintained by this instance of {@link Dice}. The key for this
-     * {@link Throw} is available from the {@link Throw#getKey()} method.
+     * Adds the given {@link Throw} to the mapping maintained by this instance of {@link Dice}. The key for this {@link
+     * Throw} is available from the {@link Throw#getKey()} method.
      *
      * @param diceThrow the {@link Throw} to add
      */
     public void addThrow(Throw diceThrow) {
-        THROWS.put(diceThrow.getKey(), diceThrow);
+        allThrows.put(diceThrow.getKey(), diceThrow);
     }
 
     /**
@@ -99,8 +102,8 @@ public class Dice {
      * @return the randomly selected {@link Throw}
      */
     public Throw next() {
-        List<Pair<Integer, Integer>> keys = new ArrayList<>(THROWS.keySet());
+        List<Pair<Integer, Integer>> keys = new ArrayList<>(allThrows.keySet());
         int index = RNG.nextInt(keys.size());
-        return THROWS.get(keys.get(index));
+        return allThrows.get(keys.get(index));
     }
 }

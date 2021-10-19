@@ -76,7 +76,7 @@ public class DiceTest {
         dice.addThrow(crapsThrow);
         dice.addThrow(pointThrow);
         dice.addThrow(elevenThrow);
-        List<Throw> diceThrows = new ArrayList<>(dice.THROWS.values());
+        List<Throw> diceThrows = new ArrayList<>(dice.allThrows.values());
 
         Mockito.when(rng.nextInt(4)).thenReturn(0);
         Assert.assertEquals(diceThrows.get(0), dice.next());

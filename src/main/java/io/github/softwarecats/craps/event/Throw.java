@@ -19,26 +19,29 @@ package io.github.softwarecats.craps.event;
 import io.github.softwarecats.casino.event.Outcome;
 import io.github.softwarecats.casino.event.RandomEvent;
 import io.github.softwarecats.craps.Game;
+import lombok.Getter;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.Arrays;
 import java.util.Collection;
 
 /**
- * {@link Throw} is the superclass for the various throws of the dice. Each subclass is a different grouping of the numbers, based
- * on the rules for Craps.
+ * {@link Throw} is the superclass for the various throws of the dice. Each subclass is a different grouping of the
+ * numbers, based on the rules for Craps.
  */
 public abstract class Throw extends RandomEvent {
 
     /**
      * One of the two die values, from 1 to 6.
      */
-    public int diceOne;
+    @Getter
+    protected int diceOne;
 
     /**
      * The other of the two die values, from 1 to 6.
      */
-    public int diceTwo;
+    @Getter
+    protected int diceTwo;
 
     /**
      * Creates this {@link Throw}, {@link Outcome}s can be added later.
@@ -62,7 +65,8 @@ public abstract class Throw extends RandomEvent {
     }
 
     /**
-     * Creates this {@link Throw}, and associates the given {@link Collection} of {@link Outcome}s that are winning propositions.
+     * Creates this {@link Throw}, and associates the given {@link Collection} of {@link Outcome}s that are winning
+     * propositions.
      *
      * @param diceOne  the value of one die
      * @param diceTwo  the value of the other die
@@ -84,16 +88,16 @@ public abstract class Throw extends RandomEvent {
     }
 
     /**
-     * Calls one of the {@link Game} state change methods: {@link Game#craps()}, {@link Game#natural()}, {@link Game#eleven()}, {@link Game#point(int)}. This may
-     * change the game state and resolve bets.
+     * Calls one of the {@link Game} state change methods: {@link Game#craps()}, {@link Game#natural()}, {@link
+     * Game#eleven()}, {@link Game#point(int)}. This may change the game state and resolve bets.
      *
      * @param game the {@link Game} to be updated based on this throw
      */
     public abstract void updateGame(Game game);
 
     /**
-     * An easy-to-read {@link String} output method is also very handy. This should return a {@link String} representation of the
-     * dice. A form that looks like "1,2" works nicely.
+     * An easy-to-read {@link String} output method is also very handy. This should return a {@link String}
+     * representation of the dice. A form that looks like "1,2" works nicely.
      *
      * @return a {@link String} representation of the dice
      */

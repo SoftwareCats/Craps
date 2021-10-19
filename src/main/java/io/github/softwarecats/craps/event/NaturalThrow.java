@@ -28,8 +28,8 @@ import java.util.Collection;
 public class NaturalThrow extends Throw {
 
     /**
-     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo = 7. If the constraint is not satisfied, simply
-     * raise an {@link Exception}.
+     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo = 7. If the constraint is not satisfied,
+     * simply raise an {@link Exception}.
      * <p>
      * This uses the superclass constructor to add appropriate {@link Outcome} for a {@link Throw} of 7.
      *
@@ -41,8 +41,8 @@ public class NaturalThrow extends Throw {
     }
 
     /**
-     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo = 7. If the constraint is not satisfied, simply
-     * raise an {@link Exception}.
+     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo = 7. If the constraint is unsatisfied,
+     * simply raise an {@link Exception}.
      * <p>
      * This uses the superclass constructor to add appropriate {@link Outcome} for a {@link Throw} of 7.
      *
@@ -55,8 +55,8 @@ public class NaturalThrow extends Throw {
     }
 
     /**
-     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo = 7. If the constraint is not satisfied, simply
-     * raise an {@link Exception}.
+     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo = 7. If the constraint is unsatisfied,
+     * simply raise an {@link Exception}.
      * <p>
      * This uses the superclass constructor to add appropriate {@link Outcome} for a {@link Throw} of 7.
      *
@@ -68,7 +68,7 @@ public class NaturalThrow extends Throw {
         super(diceOne, diceTwo, outcomes);
 
         if (diceOne + diceTwo != 7) {
-            throw new IllegalArgumentException("In a natural throw, dice one and two must sum to 7");
+            throw new IllegalArgumentException("In a natural throw, dice one and two must sum to 7.");
         }
     }
 

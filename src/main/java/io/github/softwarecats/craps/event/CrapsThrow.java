@@ -28,8 +28,8 @@ import java.util.Collection;
 public class CrapsThrow extends Throw {
 
     /**
-     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo == 2, 3, or 12. If the constraint is not satisfied, simply raise an
-     * {@link Exception}.
+     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo == 2, 3, or 12. If the constraint is not
+     * satisfied, simply raise an {@link Exception}.
      * <p>
      * This uses the superclass constructor to add appropriate {@link Outcome}s for a throw of craps.
      *
@@ -41,8 +41,8 @@ public class CrapsThrow extends Throw {
     }
 
     /**
-     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo == 2, 3, or 12. If the constraint is not satisfied, simply raise an
-     * {@link Exception}.
+     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo == 2, 3, or 12. If the constraint is not
+     * satisfied, simply raise an {@link Exception}.
      * <p>
      * This uses the superclass constructor to add appropriate {@link Outcome}s for a throw of craps.
      *
@@ -55,8 +55,8 @@ public class CrapsThrow extends Throw {
     }
 
     /**
-     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo == 2, 3, or 12. If the constraint is not satisfied, simply raise an
-     * {@link Exception}.
+     * Creates this {@link Throw}. The constraint is that diceOne + diceTwo == 2, 3, or 12. If the constraint is not
+     * satisfied, simply raise an {@link Exception}.
      * <p>
      * This uses the superclass constructor to add appropriate {@link Outcome}s for a throw of craps.
      *
@@ -69,7 +69,7 @@ public class CrapsThrow extends Throw {
 
         int sum = diceOne + diceTwo;
         if (sum != 2 && sum != 3 && sum != 12) {
-            throw new IllegalArgumentException("In a craps throw, dice one and two must sum to 2, 3, or 12");
+            throw new IllegalArgumentException("In a craps throw, dice one and two must sum to 2, 3, or 12.");
         }
     }
 
